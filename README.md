@@ -69,9 +69,29 @@ port: 8080
 server_name: my_server
 ```
 
-### Тестирование
+## Тестирование
 Проект включает тесты для проверки корректности работы парсера. Для запуска тестов выполните следующую команду:
 
 ```bash
 python -m unittest test_config_parser.py
 ```
+
+### Пример Использования
+
+```python
+    def test_web_server_config(self):
+        config_lines = [
+            'const server_name = "my_server";',
+            'const port = 8080;',
+            'const allowed_ips = ("192.168.1.1", "192.168.1.2");'
+        ]
+        self.parser.parse(config_lines)
+        self.assertEqual(self.parser.constants['server_name'], "my_server")
+        self.assertEqual(self.parser.constants['port'], 8080)
+        self.assertEqual(self.parser.constants['allowed_ips'], ["192.168.1.1", "192.168.1.2"])
+```
+
+### Результат Тестов
+
+<img width="436" alt="image" src="https://github.com/user-attachments/assets/b0c3f299-1afd-48ac-86b6-7819604e57f0">
+
