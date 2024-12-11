@@ -1,4 +1,4 @@
-### Config_Parser
+# Config_Parser
 
 ## Конвертер конфигурационного языка в YAML
 
